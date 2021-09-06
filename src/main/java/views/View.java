@@ -36,5 +36,9 @@ public class View {
         System.out.println("operation failed: " + error);
     }
 
+    public void OperationSuccess(){
+        System.out.println("operation completed");
+    }
+
 
 }

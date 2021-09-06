@@ -21,6 +21,33 @@ public class Controller {
         return instance;
     }
 
+    public int MasterOperation(String[] op){
+
+        if(op[0] == "login"){
+            Login(op[1], op[2]);
+            return 0;
+        }
+        if(op[0] == "register"){
+            Register(op[1], op[2]);
+            return 0;
+        }
+        if(op[0] == "logout"){
+            Logout();
+            return 0;
+        }
+        if(op[0] == "editPassword"){
+            EditPassword(op[1]);
+            return 0;
+        }
+        if (op[0] == "getUsersList"){
+            GetAllUsers();
+            return 0;
+        }
+
+        view.OperationFailed("operation not found");
+        return 0;
+    }
+
     public int Login(String login, String password){
         if(user != null){
             view.FailedLogin("already login as "+user.getName());
@@ -59,6 +86,7 @@ public class Controller {
 
         user = new User(login, password);
         userService.saveUser(user);
+        view.OperationSuccess();
         return 0;
     }
 
@@ -68,6 +96,7 @@ public class Controller {
         }
         user.setPassword(password);
         userService.updateUser(user);
+        view.OperationSuccess();
         return 0;
     }
 
@@ -78,6 +107,7 @@ public class Controller {
         }
 
         user = null;
+        view.OperationSuccess();
         return 0;
     }
 
