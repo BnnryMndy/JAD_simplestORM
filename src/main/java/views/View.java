@@ -6,13 +6,13 @@ import services.UserService;
 import java.util.List;
 
 public class View {
-    private static View instance;
+    private static final View instance = new View();
     private UserService userService = new UserService();
 
     private View(){}
 
     public static View getInstance() {
-        if(instance == null) instance = new View();
+//        if(instance == null) instance = new View();
         return instance;
     }
 

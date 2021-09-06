@@ -29,14 +29,14 @@ public class User {
     }
 
     @Column
-    private String password;
+    private String Password;
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.Password = password;
     }
 
     public User(){}
@@ -47,6 +47,6 @@ public class User {
 
     public User(String name, String password) {
         this.name = name;
-        this.password = password;
+        this.Password = password;
     }
 }

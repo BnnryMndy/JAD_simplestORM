@@ -10,15 +10,16 @@ public class Main {
     public static void main(String args[]){
         View view = View.getInstance();
         Controller controller = Controller.getInstance();
-
+        System.out.println("Enter Command:");
         Scanner in = new Scanner(System.in);
-        String[] op = in.next().split(" ");
-        System.out.println(op[0]);
+        String op = in.nextLine();
+        System.out.println(op);
         do{
             controller.MasterOperation(op);
+
             System.out.println("Enter Command:");
-            op = in.next().split(" ");
-            System.out.println(op[0]);
-        } while (op[0] != "quit");
+            op = in.nextLine();
+            System.out.println(op);
+        } while (!op.equals("quit"));
     }
 }
